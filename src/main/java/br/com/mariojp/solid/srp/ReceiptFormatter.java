@@ -1,5 +1,4 @@
 package br.com.mariojp.solid.srp;
-
 public class ReceiptFormatter {
 	
 	public String format(Order order, double subtotal, double tax, double total) {
@@ -14,6 +13,4 @@ public class ReceiptFormatter {
 	sb.append("Total: ").append(total).append("\n");
 	return sb.toString();
 }
-
 }
-

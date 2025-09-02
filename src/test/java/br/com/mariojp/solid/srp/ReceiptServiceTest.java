@@ -11,10 +11,7 @@ public class ReceiptServiceTest {
         order.add(new Item("Café", 8.0, 2)); // 16
         order.add(new Item("Bolo", 12.5, 1)); // 12.5 -> subtotal 28.5
 
-        TaxCalculator taxcalculator = new TaxCalculator();
-        ReceiptFormatter receiptformatter = new ReceiptFormatter();
-        ReceiptService receiptService = new ReceiptService(taxcalculator, receiptformatter);
-        String receipt = receiptService.generate(order);
+        String receipt = new ReceiptService().generate(order);
         assertTrue(receipt.contains("Subtotal: 28.5"));
         // Esperado com 8%: tax=2.28 total=30.78 (inicialmente virá 2.85 e 31.35)
         assertTrue(receipt.contains("Tax: 2.28"), "Deve respeitar tax.rate=0.08");
